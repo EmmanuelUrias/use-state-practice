@@ -1,8 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
   let [counter, setCounter] = useState(0)
   //useState is a hook that allows you to add state to functional components in React. It returns an array with two elements: the current state value and a function that allows you to update the state value.
+
+  let automaticCounter = () => {
+    setCounter(counter + 5)
+  }
+
+  useEffect(() => {
+    setInterval(automaticCounter, 1000)
+    // everytime you render or re-render the page/component the useEffect will run.
+  },[])
 
   return (
     <div style={{'textAlign': 'center', 'marginTop': '250px'}}>
